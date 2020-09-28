@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import React from 'react';
 import { connect } from 'react-redux';
 import { makeApiCall } from './../actions/index';
@@ -14,11 +13,11 @@ class Headlines extends React.Component {
   }
   
   render() {
-    const { error, isLoaded, headlines } = this.props;
+    const { error, isLoading, headlines } = this.props;
 
     if(error) {
       return <React.Fragment>Error: {error.message}</React.Fragment>
-    } else if (!isLoaded) {
+    } else if (isLoading) {
       return <React.Fragment>Loading...</React.Fragment>
     } else {
       return (
